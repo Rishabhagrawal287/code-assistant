@@ -1,0 +1,20 @@
+﻿# Python
+__pycache__/
+*.py[cod]
+.venv/
+backend/.venv/
+*.egg-info/
+.env
+
+# ChromaDB
+backend/chroma_store/
+
+# VS Code extension
+vscode-extension/out/
+vscode-extension/node_modules/
+vscode-extension/*.vsix
+
+# OS
+.DS_Store
+Thumbs.db
+*.log
