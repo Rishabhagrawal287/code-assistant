@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+*.egg-info/
+dist/
+.env
+
+# ChromaDB data (large, machine-specific)
+backend/chroma_store/
+
+# VS Code extension compiled output
+vscode-extension/out/
+vscode-extension/node_modules/
+vscode-extension/*.vsix
+
+# Temp scripts used during setup
+write_extension_files.py
+write_ext_test.py
+chunk1.py
+chunk2.py
+chunk3.py
+chunk4.py
+fix_*.py
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

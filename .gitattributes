@@ -1,0 +1,14 @@
+﻿# Normalize line endings
+* text=auto
+
+# Python files
+*.py text eol=lf
+
+# TypeScript/JavaScript
+*.ts text eol=lf
+*.js text eol=lf
+*.json text eol=lf
+
+# Binaries - don't touch line endings
+*.png binary
+*.vsix binary

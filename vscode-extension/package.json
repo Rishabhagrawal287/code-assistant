@@ -1,0 +1,95 @@
+{
+  "name": "ai-code-assistant",
+  "displayName": "AI Code Assistant",
+  "description": "Local AI-powered code completion, explanation, and semantic search",
+  "version": "1.0.0",
+  "publisher": "local-dev",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Machine Learning",
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "ai-code-assistant.explainCode",
+        "title": "AI: Explain This Code"
+      },
+      {
+        "command": "ai-code-assistant.searchCode",
+        "title": "AI: Search Similar Code"
+      },
+      {
+        "command": "ai-code-assistant.openChat",
+        "title": "AI: Open Chat Panel"
+      },
+      {
+        "command": "ai-code-assistant.indexWorkspace",
+        "title": "AI: Index Workspace Files"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "ai-code-assistant.explainCode",
+          "when": "editorHasSelection",
+          "group": "ai-assistant@1"
+        },
+        {
+          "command": "ai-code-assistant.searchCode",
+          "group": "ai-assistant@2"
+        }
+      ]
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "ai-code-assistant-sidebar",
+          "title": "AI Code Assistant",
+          "icon": "$(hubot)"
+        }
+      ]
+    },
+    "views": {
+      "ai-code-assistant-sidebar": [
+        {
+          "type": "webview",
+          "id": "ai-code-assistant.chatView",
+          "name": "Chat"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "AI Code Assistant",
+      "properties": {
+        "aiCodeAssistant.backendUrl": {
+          "type": "string",
+          "default": "http://127.0.0.1:8000",
+          "description": "URL of the FastAPI backend server"
+        },
+        "aiCodeAssistant.enableInlineCompletion": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable AI inline code completions"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^22.19.17",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.3.0"
+  }
+}
